@@ -139,6 +139,7 @@ const ZoomImage: React.FC<Props> = ({style, source, ...props}) => {
               gesture={gesture}
               offSet={offSet}
               scaleOffset={scaleOffset}
+              source={source}
             />
           </Animated.View>
         </GestureHandlerRootView>
