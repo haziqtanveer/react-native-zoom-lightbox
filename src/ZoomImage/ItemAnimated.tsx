@@ -16,15 +16,18 @@ interface Props {
   gesture: SimultaneousGesture;
   offSet: SharedValue<number>;
   scaleOffset: SharedValue<number>;
+  source:any
 }
 
-const ItemAnimated: React.FC<Props> = ({
-  measureImage,
-  valueAnimatedItem,
-  gesture,
-  offSet,
-  scaleOffset,
-}) => {
+const ItemAnimated: React.FC<Props> = (props: any) => {
+  const {
+    measureImage,
+    valueAnimatedItem,
+    gesture,
+    offSet,
+    scaleOffset,
+    source
+  } = props
   useEffect(() => {
     valueAnimatedItem.value = withTiming(1, {duration: 500});
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,7 +68,7 @@ const ItemAnimated: React.FC<Props> = ({
       <GestureDetector gesture={gesture}>
         <Animated.View style={[rContainerImageView]}>
           <Image
-            source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+            source={source}
             style={style.imgModalContainer}
           />
         </Animated.View>
